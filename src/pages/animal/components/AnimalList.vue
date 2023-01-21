@@ -5,10 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { Table } from "ant-design-vue";
 import { ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import { getAnimalList } from "@/api/animal";
+import { queryAnimalList } from "@/api/animal";
 import { AnimalEntity } from "@/types/animal";
 const dataSource = ref<AnimalEntity[]>([]);
 const columns = ref<ColumnsType>([
@@ -27,12 +26,16 @@ const columns = ref<ColumnsType>([
 ]);
 
 async function getAnimals() {
-  const res = await getAnimalList();
+  const res = await queryAnimalList();
   if (res && res.data) {
     dataSource.value = res.data;
   }
 }
 getAnimals();
+
+defineExpose({
+  getAnimals,
+});
 </script>
 
 <style scoped></style>

@@ -1,9 +1,10 @@
-import request from '@/api'
-import {AnimalEntity} from '@/types/animal'
+import axios from "@/api";
+import { AnimalDto, AnimalEntity } from "@/types/animal";
 
-export function getAnimalList (): ApiRet<AnimalEntity[]> {
-  return request({
-    url: '/api/animal/list',
-    method: 'get',
-  })
+export function queryAnimalList(): ApiRet<AnimalEntity[]> {
+  return axios.get("/api/animal/list");
+}
+
+export function createAnimal(params: AnimalDto) {
+  return axios.post("/api/animal", params);
 }

@@ -1,16 +1,14 @@
 <template>
   <div class="home">
-home 11
-<AnimalPage></AnimalPage>
+    <AnimalPage></AnimalPage>
   </div>
 </template>
 
 <script setup lang="ts">
-import AnimalPage from './animal/AnimalPage.vue'
+import AnimalPage from "./animal/AnimalPage.vue";
 </script>
 
 <style scoped>
-
 .home {
   color: #fff;
 }
