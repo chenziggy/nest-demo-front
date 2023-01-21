@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-home
-<Animal></Animal>
+home 11
+<AnimalPage></AnimalPage>
   </div>
 </template>
 
 <script setup lang="ts">
-import Animal from './animal.vue'
+import AnimalPage from './animal/AnimalPage.vue'
 </script>
 
 <style scoped>

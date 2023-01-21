@@ -13,5 +13,15 @@ export default defineConfig({
     alias: {
       '@/': '/src/',
     }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: 'http://localhost:3000/', // 测试环境
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+
+      }
+    }
   }
 });
