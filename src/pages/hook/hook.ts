@@ -5,7 +5,7 @@ type TApiFun<TData, TParams extends any[]> = (
 ) => Promise<TData>;
 
 interface AutoRequestOptions {
-  loading: boolean;
+  loading?: boolean;
   onSuccess?: (data: any) => void;
 }
 
@@ -24,8 +24,8 @@ export function useAutoRequest<TData, TParams extends any[] = any[]>(
   const run: TApiFun<TData, TParams> = (...params: TParams) => {
     requestLoading.value = true;
     return fun(...params)
-      .then((res) => {
-        onSuccess && onSuccess(res)
+      .then(async (res) => {
+        onSuccess && (await onSuccess(res));
         return res;
       })
       .finally(() => {
